@@ -34,9 +34,9 @@ $posts = $conn->query("
             </div>
             <div class="comentario"><?= $post["comentario"] ?></div>
             <img src="<?= $post["imagen"] ?>" style="
-              <?= ($post["filtro"] == "grayscale") ? 'filter: grayscale(100%);' : '' ?>
-              <?= ($post["filtro"] == "sepia") ? 'filter: sepia(100%);' : '' ?>
-              <?= ($post["filtro"] == "blur") ? 'filter: blur(2px);' : '' ?>">
+                <?= ($post["filtro"] == "grayscale") ? 'filter: grayscale(100%);' : '' ?>
+                <?= ($post["filtro"] == "sepia") ? 'filter: sepia(100%);' : '' ?>
+                <?= ($post["filtro"] == "blur") ? 'filter: blur(2px);' : '' ?>">
             
             <div class="acciones">
                 <form method="POST" action="reaccionar.php" style="display:inline;">
