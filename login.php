@@ -17,14 +17,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: home.php");
         exit;
     } else {
-        $error = "Credenciales incorrectas.";
+        $error = "❌ Credenciales incorrectas.";
     }
 }
 ?>
 
-<form method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="contraseña" placeholder="Contraseña" required>
-    <button type="submit">Iniciar Sesión</button>
-    <p style="color:red"><?= $error ?></p>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión - Social DEV TyN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Iniciar sesión</h2>
+
+        <?php if ($error): ?>
+        <div class="error"><?= $error ?></div>
+        <?php endif; ?>
+
+        <form method="POST">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+
+        <p>¿No tenés cuenta? <a href="registro.php">Registrate</a></p>
+    </div>
+</body>
+</html>
