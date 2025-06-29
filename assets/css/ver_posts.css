@@ -1,0 +1,27 @@
+.card-post {
+  background-color: #1b263b;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card-post img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.card-post .comentario {
+    margin-top: 10px;
+}
+
+.card-post .acciones {
+    margin-top: 12px;
+}
+
+.comentarios {
+    margin-top: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #415a77;
+}
