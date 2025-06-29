@@ -12,3 +12,5 @@ if (!isset($_SESSION["usuario"])) {
     <input type="text" name="q" placeholder="Buscar tecnologías...">
     <button type="submit">🔍</button>
 </form>
+<a href="guardados.php">📂 Mis guardados</a>
+
