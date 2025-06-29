@@ -41,6 +41,20 @@ $posts = $conn->query("
             <button type="submit" name="tipo" value="like">👍 Me gusta</button>
         </form>
 
+        <!-- Guardar / Desguardar -->
+        <form method="POST" action="guardar.php" style="display:inline;">
+            <input type="hidden" name="id_post" value="<?= $post['id'] ?>">
+            <button type="submit">
+                <?php
+                // Ver si ya está guardado
+                $stmt = $conn->prepare("SELECT * FROM guardados WHERE id_usuario = ? AND id_post = ?");
+                $stmt->execute([$_SESSION["usuario"]["id"], $post["id"]]);
+                echo $stmt->rowCount() > 0 ? "🔖 Guardado" : "📌 Guardar";
+                ?>
+            </button>
+        </form>
+
+
         <!-- Formulario de comentario -->
         <form method="POST" action="comentar.php" enctype="multipart/form-data" style="margin-top:10px;">
             <input type="hidden" name="id_post" value="<?= $post['id'] ?>">
