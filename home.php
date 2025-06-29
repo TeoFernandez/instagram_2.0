@@ -8,3 +8,7 @@ if (!isset($_SESSION["usuario"])) {
 
 <h2>¡Hola, <?= $_SESSION["usuario"]["nombre"] ?>!</h2>
 <a href="logout.php">Cerrar sesión</a>
+<form action="buscar.php" method="GET">
+    <input type="text" name="q" placeholder="Buscar tecnologías...">
+    <button type="submit">🔍</button>
+</form>

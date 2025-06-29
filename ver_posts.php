@@ -19,13 +19,18 @@ $posts = $conn->query("
 <a href="crear_post.php">Crear nueva publicación</a> | 
 <a href="logout.php">Cerrar sesión</a><br><br>
 
+<form action="buscar.php" method="GET">
+    <input type="text" name="q" placeholder="Buscar tecnologías...">
+    <button type="submit">🔍</button>
+</form>
+
 <?php foreach ($posts as $post): ?>
     <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
         <strong><?= $post["nombre"] . " " . $post["apellido"] ?></strong><br>
         <small><?= $post["fecha_post"] ?></small><br><br>
         <p><?= $post["comentario"] ?></p>
         <img src="<?= $post["imagen"] ?>" 
-             style="width:300px; 
+            style="width:300px; 
                     <?= ($post["filtro"] == "grayscale" ? 'filter: grayscale(100%);' : '') ?>
                     <?= ($post["filtro"] == "sepia" ? 'filter: sepia(100%);' : '') ?>
                     <?= ($post["filtro"] == "blur" ? 'filter: blur(2px);' : '') ?>">
