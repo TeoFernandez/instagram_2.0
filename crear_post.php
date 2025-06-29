@@ -8,6 +8,8 @@ if (!isset($_SESSION["usuario"])) {
 include("includes/conexion.php");
 $errores = "";
 
+$etiquetas = $_POST["etiquetas"];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comentario = $_POST["comentario"];
     $filtro = $_POST["filtro"];
@@ -26,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ruta = "uploads/" . time() . "_" . basename($imagen_nombre);
         move_uploaded_file($imagen_temp, $ruta);
 
-        $stmt = $conn->prepare("INSERT INTO posts (id_usuario, comentario, imagen, filtro) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$_SESSION["usuario"]["id"], $comentario, $ruta, $filtro]);
+        $stmt = $conn->prepare("INSERT INTO posts (id_usuario, comentario, imagen, filtro, etiquetas) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$_SESSION["usuario"]["id"], $comentario, $ruta, $filtro, $etiquetas]);
 
         header("Location: ver_posts.php");
         exit;
@@ -41,6 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <textarea name="comentario" placeholder="Escribí un comentario..." required></textarea><br>
     
     <label>Seleccioná un filtro:</label>
+    <label>Etiquetas (separadas por coma):</label><br>
+    <input type="text" name="etiquetas" placeholder="ej: php, mysql, backend"><br><br>
     <select name="filtro">
         <option value="none">Ninguno</option>
         <option value="grayscale">Blanco y negro</option>
