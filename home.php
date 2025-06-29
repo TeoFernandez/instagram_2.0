@@ -13,4 +13,11 @@ if (!isset($_SESSION["usuario"])) {
     <button type="submit">🔍</button>
 </form>
 <a href="guardados.php">📂 Mis guardados</a>
+<?php
+$stmt = $conn->prepare("SELECT COUNT(*) FROM notificaciones WHERE id_usuario = ? AND leida = 0");
+$stmt->execute([$_SESSION["usuario"]["id"]]);
+$cant = $stmt->fetchColumn();
+?>
+
+<a href="notificaciones.php">🔔 Notificaciones (<?= $cant ?>)</a>
 

@@ -24,6 +24,15 @@ $posts = $conn->query("
     <button type="submit">🔍</button>
 </form>
 
+<?php
+$stmt = $conn->prepare("SELECT COUNT(*) FROM notificaciones WHERE id_usuario = ? AND leida = 0");
+$stmt->execute([$_SESSION["usuario"]["id"]]);
+$cant = $stmt->fetchColumn();
+?>
+
+<a href="notificaciones.php">🔔 Notificaciones (<?= $cant ?>)</a>
+
+
 <?php foreach ($posts as $post): ?>
     <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
         <strong><?= $post["nombre"] . " " . $post["apellido"] ?></strong><br>
