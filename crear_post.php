@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<?php include("includes/navbar.php"); ?>
 
 <h2>Crear publicación</h2>
 

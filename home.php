@@ -5,6 +5,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 ?>
+<?php include("includes/navbar.php"); ?>
 
 <h2>¡Hola, <?= $_SESSION["usuario"]["nombre"] ?>!</h2>
 <a href="logout.php">Cerrar sesión</a>

@@ -1,0 +1,26 @@
+.noti-container {
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+.noti-card {
+    background-color: #1b263b;
+    padding: 16px;
+    border-left: 4px solid #1b9aaa;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    transition: background 0.3s ease;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.noti-card.leida {
+    border-left: 4px solid #415a77;
+    background-color: #101d30;
+    color: #cccccc;
+}
+
+.noti-card small {
+    color: #8899aa;
+    display: block;
+    margin-top: 6px;
+}

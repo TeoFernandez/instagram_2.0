@@ -63,6 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/css/perfil.css">
 </head>
 <body>
+    <?php include("includes/navbar.php"); ?>
+
 <div class="container">
     <h2>👤 Mi Perfil Profesional</h2>
     <p style="color:lightgreen"><?= $mensaje ?></p>

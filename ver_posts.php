@@ -20,6 +20,7 @@ $posts = $conn->query("
     <link rel="stylesheet" href="assets/css/ver_posts.css">
 </head>
 <body>
+    <?php include("includes/navbar.php"); ?>
 <div class="container">
     <h2>🧠 Social DEV TyN - Feed</h2>
     <a href="crear_post.php" class="btn btn-guardar">➕ Crear nueva publicación</a>
