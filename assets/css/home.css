@@ -1,0 +1,53 @@
+.home-container {
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.home-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.search-form input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #415a77;
+    border-radius: 6px 0 0 6px;
+    background-color: #1b263b;
+    color: white;
+}
+
+.search-form button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #1b9aaa;
+    color: white;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #148a94;
+}
+
+.links {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.links a {
+    color: #1b9aaa;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #1b263b;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.links a:hover {
+    background-color: #101d30;
+}
