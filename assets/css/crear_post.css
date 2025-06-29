@@ -1,0 +1,55 @@
+.post-form-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #1b263b;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.post-form-container h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.post-form-container label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.post-form-container textarea,
+.post-form-container input[type="text"],
+.post-form-container select,
+.post-form-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0d1b2a;
+    border: 1px solid #415a77;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.post-form-container button {
+    padding: 10px 20px;
+    background-color: #1b9aaa;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.post-form-container button:hover {
+    background-color: #148a94;
+}
+
+.post-form-container .error {
+    color: lightcoral;
+    margin-top: 12px;
+    text-align: center;
+}

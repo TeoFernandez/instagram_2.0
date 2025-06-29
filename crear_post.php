@@ -1,60 +1,44 @@
-<?php
-session_start();
-if (!isset($_SESSION["usuario"])) {
-    header("Location: login.php");
-    exit;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear publicación - Social DEV TyN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/crear_post.css">
+</head>
+<body>
 
-include("includes/conexion.php");
-$errores = "";
-
-$etiquetas = $_POST["etiquetas"];
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $comentario = $_POST["comentario"];
-    $filtro = $_POST["filtro"];
-    $imagen_nombre = $_FILES["imagen"]["name"];
-    $imagen_temp = $_FILES["imagen"]["tmp_name"];
-    $imagen_tipo = $_FILES["imagen"]["type"];
-    $imagen_tamaño = $_FILES["imagen"]["size"];
-
-    // Validar imagen
-    $extensiones_permitidas = ["image/jpeg", "image/png"];
-    if (!in_array($imagen_tipo, $extensiones_permitidas)) {
-        $errores = "Solo se permiten imágenes JPG o PNG.";
-    } elseif ($imagen_tamaño > 5 * 1024 * 1024) {
-        $errores = "La imagen no debe superar los 5MB.";
-    } else {
-        $ruta = "uploads/" . time() . "_" . basename($imagen_nombre);
-        move_uploaded_file($imagen_temp, $ruta);
-
-        $stmt = $conn->prepare("INSERT INTO posts (id_usuario, comentario, imagen, filtro, etiquetas) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$_SESSION["usuario"]["id"], $comentario, $ruta, $filtro, $etiquetas]);
-
-        header("Location: ver_posts.php");
-        exit;
-    }
-}
-?>
 <?php include("includes/navbar.php"); ?>
 
-<h2>Crear publicación</h2>
+<div class="post-form-container">
+    <h2>📝 Crear publicación</h2>
 
-<form method="POST" enctype="multipart/form-data">
-    <textarea name="comentario" placeholder="Escribí un comentario..." required></textarea><br>
-    
-    <label>Seleccioná un filtro:</label>
-    <label>Etiquetas (separadas por coma):</label><br>
-    <input type="text" name="etiquetas" placeholder="ej: php, mysql, backend"><br><br>
-    <select name="filtro">
-        <option value="none">Ninguno</option>
-        <option value="grayscale">Blanco y negro</option>
-        <option value="sepia">Sepia</option>
-        <option value="blur">Desenfocado</option>
-    </select><br><br>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="comentario">Comentario</label>
+        <textarea name="comentario" id="comentario" placeholder="Escribí un comentario..." required></textarea>
 
-    <input type="file" name="imagen" required><br><br>
-    <button type="submit">Publicar</button>
+        <label for="etiquetas">Etiquetas (separadas por coma)</label>
+        <input type="text" name="etiquetas" id="etiquetas" placeholder="Ej: php, backend, mysql">
 
-    <p style="color:red"><?= $errores ?></p>
-</form>
+        <label for="filtro">Filtro de imagen</label>
+        <select name="filtro" id="filtro">
+            <option value="none">Ninguno</option>
+            <option value="grayscale">Blanco y negro</option>
+            <option value="sepia">Sepia</option>
+            <option value="blur">Desenfocado</option>
+        </select>
+
+        <label for="imagen">Seleccioná una imagen</label>
+        <input type="file" name="imagen" id="imagen" required>
+
+        <button type="submit">Publicar</button>
+
+        <?php if (!empty($errores)): ?>
+            <div class="error"><?= $errores ?></div>
+        <?php endif; ?>
+    </form>
+</div>
+
+</body>
+</html>
