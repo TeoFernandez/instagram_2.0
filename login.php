@@ -32,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/css/auth.css">
 </head>
 <body>
+
+    <center><h1>Social DEV TyN</h1></center>
+    <center><p>Conectate con tus amigos Desarrolladores</p></center>
     <div class="auth-container">
         <h2>Iniciar sesión</h2>
 
@@ -47,5 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <p>¿No tenés cuenta? <a href="registro.php">Registrate</a></p>
     </div>
+
+    <footer>
+        <center><p>© 2025 Social DEV TyN. Todos los derechos reservados.
+        Desarrollado por Teo Fernández y Nicolás Garcia.</p></center>
+    </footer>
 </body>
 </html>
